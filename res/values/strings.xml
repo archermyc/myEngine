@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">myc.engine</string>
+    <string name="action_next">下一关</string>
+     <string name="action_last">上一关</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
