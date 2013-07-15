@@ -11,7 +11,6 @@ import com.engine.entity.GLView;
 import com.engine.texture.ResourceTexture;
 import com.engine.texture.TextureCache;
 import com.engine.ui.GLNode;
-import com.example.myc.engine.R;
 import com.towergame.GLMenu;
 import com.towergame.player.PlayerInfo;
 import com.towergame.tower.GLTower;
@@ -88,16 +87,16 @@ public class GLMap extends GLNode {
 		// TODO Auto-generated method stub
 		if (drawFlag) {
 			for (int i = 1; i <= h / tH; i++) {
-				root.drawLine(0, i * tH + yOffset, 960, i * tH + yOffset,
+				root.drawLine(0, i * tH + yOffset, w, i * tH + yOffset,
 						Color.WHITE);
 			}
 			for (int i = 1; i <= w / tH; i++) {
-				root.drawLine(i * tW + xOffset, 0, i * tW + xOffset, 640,
+				root.drawLine(i * tW + xOffset, 0, i * tW + xOffset, h,
 						Color.WHITE);
 			}
 			drawMap(root);
 			if (image != null) {
-				image.draw(root, imagex, imagey, 96, 96);
+				image.draw(root, imagex, imagey, tW, tH);
 			}
 		}
 
@@ -114,7 +113,7 @@ public class GLMap extends GLNode {
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 10; j++) {
 				if (map[i][j] == 1) {
-					root.drawColor(getBlockX(j), getBlockY(i), 96, 96,
+					root.drawColor(getBlockX(j), getBlockY(i), tW, tH,
 							Color.argb(50, 0, 255, 0));
 				}
 			}

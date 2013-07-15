@@ -69,9 +69,9 @@ public class TowerGameScene extends GLScene {
 				}
 			}
 		};
-		GLNode root = initRoot();
-		root.setScale(GameApp.getInstnce().ScreenScale,
-				GameApp.getInstnce().ScreenScale);
+		// GLNode root = initRoot();
+		// root.setScale(GameApp.getInstnce().ScreenScaleW,
+		// GameApp.getInstnce().ScreenScaleH);
 	}
 
 	private void onGameLost() {
@@ -101,10 +101,10 @@ public class TowerGameScene extends GLScene {
 		if (!test) {
 			bg = new GLImage(AssertRes.images.map.map00_png);
 			bg.setPos(0, 0);
-			// bg.setSize(GameApp.getInstnce().ScreenWidth,
-			// GameApp.getInstnce().ScreenHeight);
-			bg.setSize(GameApp.getInstnce().defaultWidth,
-					GameApp.getInstnce().defaultHeight);
+			bg.setSize(GameApp.getInstnce().ScreenWidth,
+					GameApp.getInstnce().ScreenHeight);
+			// bg.setSize(GameApp.getInstnce().defaultWidth,
+			// GameApp.getInstnce().defaultHeight);
 
 			addChild(bg);
 
@@ -148,7 +148,6 @@ public class TowerGameScene extends GLScene {
 	@Override
 	protected void update() {
 		if (!pauseFlag) {
-
 			if (!test) {
 				TowerManager towerManager = TowerManager.getInstance();
 				for (int i = 0; i < towerManager.getChildCount(); i++) {

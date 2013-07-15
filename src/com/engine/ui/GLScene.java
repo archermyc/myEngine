@@ -1,28 +1,30 @@
 package com.engine.ui;
 
-import com.engine.entity.GLView;
 import com.example.myc.engine.GameApp;
 
 public abstract class GLScene extends GLNode {
 
-	 private GLNode root;
+	/**
+	 * 引用root 原意是想通过缩放做适配 但是目前出现一些问题，需要改动的地方太多了
+	 */
+//	private GLNode root;
 
 	public GLScene() {
 		layout(0, 0, GameApp.getInstnce().ScreenWidth,
 				GameApp.getInstnce().ScreenHeight);
-		 initRoot();
+//		initRoot();
 
 	}
 
-	 public GLNode initRoot() {
-	 root = new GLNode();
-	 root.setPos(0, 0);
-	 root.setSize(GameApp.getInstnce().targetWidth,
-	 GameApp.getInstnce().targetHeight);
-	
-	 addComponent(root);
-	 return root;
-	 }
+//	public GLNode initRoot() {
+//		root = new GLNode();
+//		root.setPos(0, 0);
+//		root.setSize(GameApp.getInstnce().targetWidth,
+//				GameApp.getInstnce().targetHeight);
+//
+//		addComponent(root);
+//		return root;
+//	}
 
 	/**
 	 * 加载资源
@@ -39,9 +41,9 @@ public abstract class GLScene extends GLNode {
 	 */
 	protected abstract void run();
 
-	@Override
-	public void addChild(GLView view) {
-		// TODO Auto-generated method stub
-		root.addChild(view);
-	}
+//	@Override
+//	public void addChild(GLView view) {
+//		// TODO Auto-generated method stub
+//		root.addChild(view);
+//	}
 }

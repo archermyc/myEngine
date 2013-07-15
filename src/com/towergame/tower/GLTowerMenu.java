@@ -23,16 +23,19 @@ public class GLTowerMenu extends GLNode {
 	GLButton lightTower;
 	GLButton magicTower;
 	GLButton slowdownTower;
-	
+
 	int mWidth = 730;
 	int mHeight = 150;
 	int mX = 260;
-	int mY = GameApp.getInstnce().targetHeight - mHeight + 20;
+	int mY = GameApp.getInstnce().ScreenHeight - mHeight + 20;
 
 	boolean posFlag = true; // 坐标标志
-	
+
 	int drawX = 0;
 	int drawY = 0;
+
+	int imageW = 96;
+
 	public GLTowerMenu() {
 		init();
 		initButton();
@@ -50,7 +53,7 @@ public class GLTowerMenu extends GLNode {
 	private void initButton() {
 		button = new GLButton(R.drawable.domob_next);
 		button.setPos(20, 25);
-		button.setSize(96, 96);
+		button.setSize(imageW, imageW);
 		addChild(button);
 		button.setOnClickListener(new OnClickListener() {
 			public void OnClick(GLView view) {
@@ -79,64 +82,69 @@ public class GLTowerMenu extends GLNode {
 	}
 
 	private void addTower() {
-		arrowTower = new GLButton(TowerConfig.getTowerImage(TowerConfig.ArrowTower), null);
-		drawX = 116;
+		arrowTower = new GLButton(
+				TowerConfig.getTowerImage(TowerConfig.ArrowTower), null);
+		drawX = 20 + imageW;
 		drawY = 25;
-		arrowTower.setPos(20 + 96, 25);
-		arrowTower.setSize(96, 96);
+		arrowTower.setPos(20 + imageW, 25);
+		arrowTower.setSize(imageW, imageW);
 		addChild(arrowTower);
 		arrowTower.setOnClickListener(new OnClickListener() {
 			public void OnClick(GLView view) {
 				// TODO Auto-generated method stub
-				drawX = (int)view.getX();
-				drawY = (int)view.getY();
+				drawX = (int) view.getX();
+				drawY = (int) view.getY();
 				GLMap.getInstance().setDrawingTower(TowerConfig.ArrowTower);
 			}
 		});
 
-		lightTower = new GLButton(TowerConfig.getTowerImage(TowerConfig.LightTower), null);
-		lightTower.setPos(20 + 96 + 20 + 96, 25);
-		lightTower.setSize(96, 96);
+		lightTower = new GLButton(
+				TowerConfig.getTowerImage(TowerConfig.LightTower), null);
+		lightTower.setPos(20 + imageW + 20 + imageW, 25);
+		lightTower.setSize(imageW, imageW);
 		lightTower.setOnClickListener(new OnClickListener() {
 			public void OnClick(GLView view) {
-				drawX = (int)view.getX();
-				drawY = (int)view.getY();
+				drawX = (int) view.getX();
+				drawY = (int) view.getY();
 				GLMap.getInstance().setDrawingTower(TowerConfig.LightTower);
 			}
 		});
 		addChild(lightTower);
-		
-		magicTower = new GLButton(TowerConfig.getTowerImage(TowerConfig.MagicTower), null);
-		magicTower.setPos(lightTower.getX() + 96 + 20, 25);
-		magicTower.setSize(96, 96);
+
+		magicTower = new GLButton(
+				TowerConfig.getTowerImage(TowerConfig.MagicTower), null);
+		magicTower.setPos(lightTower.getX() + imageW + 20, 25);
+		magicTower.setSize(imageW, imageW);
 		magicTower.setOnClickListener(new OnClickListener() {
 			public void OnClick(GLView view) {
-				drawX = (int)view.getX();
-				drawY = (int)view.getY();
+				drawX = (int) view.getX();
+				drawY = (int) view.getY();
 				GLMap.getInstance().setDrawingTower(TowerConfig.MagicTower);
 			}
 		});
 		addChild(magicTower);
-		
-		slowdownTower = new GLButton(TowerConfig.getTowerImage(TowerConfig.SlowDownTower), null);
-		slowdownTower.setPos(magicTower.getX() + 96 + 20, 25);
-		slowdownTower.setSize(96, 96);
+
+		slowdownTower = new GLButton(
+				TowerConfig.getTowerImage(TowerConfig.SlowDownTower), null);
+		slowdownTower.setPos(magicTower.getX() + imageW + 20, 25);
+		slowdownTower.setSize(imageW, imageW);
 		slowdownTower.setOnClickListener(new OnClickListener() {
 			public void OnClick(GLView view) {
-				drawX = (int)view.getX();
-				drawY = (int)view.getY();
+				drawX = (int) view.getX();
+				drawY = (int) view.getY();
 				GLMap.getInstance().setDrawingTower(TowerConfig.SlowDownTower);
 			}
 		});
 		addChild(slowdownTower);
 	}
-	
+
 	@Override
 	protected void render(GLRootView root, GL11 gl) {
 		// TODO Auto-generated method stub
 		super.render(root, gl);
 		if (posFlag) {
-			root.drawColor(drawX, drawY, 96, 96, Color.argb(50, 255, 0, 0));
+			root.drawColor(drawX, drawY, imageW, imageW,
+					Color.argb(50, 255, 0, 0));
 		}
 	}
 }

@@ -46,10 +46,12 @@ public class GLAnimation2 extends GLAnimationBase {
 			int x1 = 0;
 			int y1 = 0;
 			if (mDrawingRect != null) {
-				int clipX = x;
-				int clipY = (int) (y - GameApp.getInstnce().ScaleYoffset
-						/ GameApp.getInstnce().ScreenScale);
-				root.clipRect(clipX, clipY, w, h);
+//				int clipX = x;
+////				int clipY = (int) (y - GameApp.getInstnce().ScaleYoffset
+////						/ GameApp.getInstnce().ScreenScale);
+//				int clipY = (int) (y - GameApp.getInstnce().ScaleYoffset
+//						/ 1);
+				root.clipRect(0, 0, w, h);
 				x1 = mDrawingRect[mDirection][mPlayID].left;
 				y1 = mDrawingRect[mDirection][mPlayID].top;
 			}

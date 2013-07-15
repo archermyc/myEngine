@@ -39,13 +39,13 @@ public class GameApp extends Application {
 		ScreenScale =  ((float)ScreenWidth / defaultWidth) >  ((float)ScreenHeight / defaultHeight) ? (float) ((float)ScreenHeight / defaultHeight)
 				: (float) ((float)ScreenWidth / defaultWidth);
 		ScreenScaleW = (float) ((float)ScreenWidth / defaultWidth);
-		ScreenScaleW = (float) ((float)ScreenHeight / defaultHeight);
+		ScreenScaleH = (float) ((float)ScreenHeight / defaultHeight);
 
 		targetWidth = (int) (ScreenScale * defaultWidth);
 		targetHeight = (int) (ScreenScale * defaultHeight);
 		
-//		targetWidth = ScreenWidth;
-//		targetHeight = ScreenHeight;
+		targetWidth = ScreenWidth;
+		targetHeight = ScreenHeight;
 
 		ScaleXoffset = (ScreenWidth - targetWidth) / 2;
 		ScaleYoffset = (ScreenHeight - targetHeight) / 2;

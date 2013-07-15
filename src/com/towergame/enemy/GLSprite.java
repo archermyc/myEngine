@@ -14,6 +14,7 @@ import com.engine.entity.GLRootView;
 import com.engine.texture.ResourceTexture;
 import com.engine.texture.TextureCache;
 import com.engine.ui.GLNode;
+import com.example.myc.engine.GameApp;
 import com.towergame.player.PlayerInfo;
 
 /**
@@ -172,6 +173,7 @@ public class GLSprite extends GLNode {
 	@Override
 	protected void render(GLRootView root, GL11 gl) {
 		if (mSpriteAnim != null) {
+			
 			mSpriteAnim.drawAnimation(root, 0, 0, getWidth(), getHeight());
 		}
 		super.render(root, gl);
