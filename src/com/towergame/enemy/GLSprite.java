@@ -54,7 +54,7 @@ public class GLSprite extends GLNode {
 		instance = this;
 		layout(0, 0, w, h);
 	}
-	
+
 	public GLSprite(String resId) {
 		ResourceTexture resourceTexture = TextureCache.getInstance().get(resId);
 		int w = resourceTexture.getWidth() / 4;
@@ -82,7 +82,7 @@ public class GLSprite extends GLNode {
 	/**
 	 * 根据路径移动
 	 * 
-	 *
+	 * 
 	 */
 	public void moveByPath() {
 		final float[] mCoordinatesX;
@@ -101,15 +101,15 @@ public class GLSprite extends GLNode {
 			return;
 		}
 		// 得到移动方向
-//		if (dstX > X) {
-//			direction = ANIM_RIGHT;
-//		} else if (dstX < X) {
-//			direction = ANIM_LEFT;
-//		} else if (dstY > Y) {
-//			direction = ANIM_DOWN;
-//		} else if (dstY < Y) {
-//			direction = ANIM_UP;
-//		}
+		// if (dstX > X) {
+		// direction = ANIM_RIGHT;
+		// } else if (dstX < X) {
+		// direction = ANIM_LEFT;
+		// } else if (dstY > Y) {
+		// direction = ANIM_DOWN;
+		// } else if (dstY < Y) {
+		// direction = ANIM_UP;
+		// }
 		if (Math.abs(dstX - X) > Math.abs(dstY - Y)) {
 			if (dstX > X) {
 				direction = ANIM_RIGHT;
@@ -133,7 +133,8 @@ public class GLSprite extends GLNode {
 				if (pathIndex == movePath.getSize()) {
 					pathIndex = 0;
 					removeFromParent();
-					PlayerInfo.getInstance().setHP(PlayerInfo.getInstance().getHP() - 1);
+					PlayerInfo.getInstance().setHP(
+							PlayerInfo.getInstance().getHP() - 1);
 					return;
 				}
 				moveByPath();
@@ -141,7 +142,6 @@ public class GLSprite extends GLNode {
 		});
 		addAction(action);
 	}
-
 
 	public void doAction() {
 		if (mActions != null) {

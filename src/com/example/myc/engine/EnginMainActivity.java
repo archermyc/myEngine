@@ -25,6 +25,7 @@ public class EnginMainActivity extends Activity {
 		Display display = getWindowManager().getDefaultDisplay();
 		GameApp.getInstnce().ScreenHeight = display.getHeight();
 		GameApp.getInstnce().ScreenWidth = display.getWidth();
+		GameApp.getInstnce().init();
 		setContentView(R.layout.activity_engin_main);
 		attachHeadUpDisplay();
 	}

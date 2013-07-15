@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import com.engine.entity.FPS;
 import com.engine.entity.GLRootView;
 import com.engine.texture.ResourceTexture;
+import com.example.myc.engine.GameApp;
 
 /**
  * 4*4 ����ƴͼ����
@@ -22,7 +23,7 @@ public class GLAnimation2 extends GLAnimationBase {
 	/** 向上移动动画 **/
 	public final static int ANIM_UP = 3;
 
-	ResourceTexture mResTexture;//// 绘制的原始资源
+	ResourceTexture mResTexture;// // 绘制的原始资源
 	Rect[][] mDrawingRect; // 绘制矩阵坐标，比如绘制4*4图片右上角一块区域
 	private int mDirection; // 移动方向
 
@@ -45,7 +46,10 @@ public class GLAnimation2 extends GLAnimationBase {
 			int x1 = 0;
 			int y1 = 0;
 			if (mDrawingRect != null) {
-				root.clipRect(x, y, w, h);
+				int clipX = x;
+				int clipY = (int) (y - GameApp.getInstnce().ScaleYoffset
+						/ GameApp.getInstnce().ScreenScale);
+				root.clipRect(clipX, clipY, w, h);
 				x1 = mDrawingRect[mDirection][mPlayID].left;
 				y1 = mDrawingRect[mDirection][mPlayID].top;
 			}
@@ -84,9 +88,11 @@ public class GLAnimation2 extends GLAnimationBase {
 		if (mDrawingRect != null) {
 			int x1 = -mDrawingRect[mDirection][index].left;
 			int y1 = -mDrawingRect[mDirection][index].top;
-			root.clipRect(x, y, w, h);
-			mResTexture.draw(root, x1, y1, w * 4, h * 4);
-			root.clearClip();
+			// root.clipRect(x, y-32, w, h);
+			// mResTexture.draw(root, x1, y1+32, w * 4, h * 4);
+			// root.clipRect(0, 0, w, h);
+			mResTexture.draw(root, 0, 0, w * 4, h * 4);
+			// root.clearClip();
 		}
 	}
 }

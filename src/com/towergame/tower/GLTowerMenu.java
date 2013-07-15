@@ -12,6 +12,7 @@ import com.engine.entity.GLView;
 import com.engine.ui.GLButton;
 import com.engine.ui.GLImage2;
 import com.engine.ui.GLNode;
+import com.example.myc.engine.GameApp;
 import com.example.myc.engine.R;
 import com.towergame.map.GLMap;
 
@@ -26,7 +27,7 @@ public class GLTowerMenu extends GLNode {
 	int mWidth = 730;
 	int mHeight = 150;
 	int mX = 260;
-	int mY = 520;
+	int mY = GameApp.getInstnce().targetHeight - mHeight + 20;
 
 	boolean posFlag = true; // 坐标标志
 	

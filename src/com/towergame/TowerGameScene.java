@@ -6,7 +6,6 @@ import com.engine.ui.GLImage;
 import com.engine.ui.GLNode;
 import com.engine.ui.GLScene;
 import com.engine.uiex.GLBanner;
-import com.engine.uiex.GLDialog;
 import com.example.myc.engine.GameApp;
 import com.towergame.GameState.GameStateChangeListener;
 import com.towergame.GameState.GameStates;
@@ -47,8 +46,8 @@ public class TowerGameScene extends GLScene {
 	GameStateChangeListener gameStateChangeListener;
 
 	public TowerGameScene() {
-		layout(0, 0, GameApp.getInstnce().ScreenWidth,
-				GameApp.getInstnce().ScreenHeight);
+		// layout(0, 0, GameApp.getInstnce().ScreenWidth,
+		// GameApp.getInstnce().ScreenHeight);
 		gameStateChangeListener = new GameStateChangeListener() {
 			public void onGameStateChange(GameStates state) {
 				// TODO Auto-generated method stub
@@ -70,6 +69,9 @@ public class TowerGameScene extends GLScene {
 				}
 			}
 		};
+		GLNode root = initRoot();
+		root.setScale(GameApp.getInstnce().ScreenScale,
+				GameApp.getInstnce().ScreenScale);
 	}
 
 	private void onGameLost() {
@@ -99,8 +101,11 @@ public class TowerGameScene extends GLScene {
 		if (!test) {
 			bg = new GLImage(AssertRes.images.map.map00_png);
 			bg.setPos(0, 0);
-			bg.setSize(GameApp.getInstnce().ScreenWidth,
-					GameApp.getInstnce().ScreenHeight);
+			// bg.setSize(GameApp.getInstnce().ScreenWidth,
+			// GameApp.getInstnce().ScreenHeight);
+			bg.setSize(GameApp.getInstnce().defaultWidth,
+					GameApp.getInstnce().defaultHeight);
+
 			addChild(bg);
 
 			map = GLMap.getInstance();
@@ -178,7 +183,7 @@ public class TowerGameScene extends GLScene {
 	public void autoAddEnemy() {
 		EnemyManager enemyManager = EnemyManager.getInstance();
 		if (enemyManager.getChildCount() <= 0
-				|| enemyManager.getChildCount() <= 10) {
+				|| enemyManager.getChildCount() <= 1) {
 			GLEnemy enemy = EnemyFactory.CreatRandomEnemy();
 			enemy.setMovePath(MapConfig.getPath(mGameLevel));
 			enemy.moveByPath();
@@ -214,15 +219,15 @@ public class TowerGameScene extends GLScene {
 		PlayerInfo.getInstance().reset();
 		PlayerView.getInstance().refresh();
 		map.setMapData(MapConfig.getMapData(mGameLevel));
-//		map.setOffset(0, 0);
+		// map.setOffset(0, 0);
 		bg.setFile(MapConfig.getMapBackground(mGameLevel));
 		bg.setSize(GameApp.getInstnce().ScreenWidth,
 				GameApp.getInstnce().ScreenHeight);
 	}
 
 	public void last() {
-//		GLBanner banner = new GLBanner();
-//		banner.show();
+		// GLBanner banner = new GLBanner();
+		// banner.show();
 		GLWinDialog.staticShow();
 	}
 

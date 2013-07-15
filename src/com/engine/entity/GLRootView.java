@@ -80,6 +80,7 @@ import com.engine.texture.BasicTexture;
 import com.engine.texture.NinePatchChunk;
 import com.engine.texture.NinePatchTexture;
 import com.engine.ui.GLNode;
+import com.example.myc.engine.GameApp;
 
 // The root component of all <code>GLView</code>s. The rendering is done in GL
 // thread while the event handling is done in the main thread.  To synchronize
@@ -341,7 +342,9 @@ public class GLRootView extends GLSurfaceView implements GLSurfaceView.Renderer 
 				+ gl1.toString());
 		GL11 gl = (GL11) gl1;
 		mGL = gl;
-		gl.glViewport(0, 0, width, height);
+		height = GameApp.getInstnce().targetHeight;
+		width = GameApp.getInstnce().targetWidth;
+		gl.glViewport(0, GameApp.getInstnce().ScaleYoffset, width, height);
 
 		gl.glMatrixMode(GL10.GL_PROJECTION);
 		gl.glLoadIdentity();
